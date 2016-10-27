@@ -15,7 +15,9 @@ struct node{
 node *head;
 
 void printTest();
-void personHinzufuegen(char *vorname, char *nachname);
+void personAmAnfangHinzufuegen(char *vorname, char *nachname);
+void personAmEndeHinzufuegen(char *vorname, char *nachname);
+void nodeAmAnfangHinzufuegen(node *n);
 void nodeAmEndeHinzufuegen(node *n);
 void printListe(node *liste);
 

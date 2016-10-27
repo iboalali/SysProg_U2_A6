@@ -1,17 +1,38 @@
 #include "PersonenDaten.h"
 
 void printTest(){
-    printf("%s", "hello friend!\n");
+    printf("%s", "hello friend!\n\n");
 }
 
-void personHinzufuegen(char *vorname, char *nachname){
+void personAmAnfangHinzufuegen(char *vorname, char *nachname){
     node *n;
+    n = malloc(sizeof(node));
+    n->vorname = vorname;
+    n->nachname = nachname;
+    n->succ = head;
+
+    nodeAmAnfangHinzufuegen(n);
+}
+
+void nodeAmAnfangHinzufuegen(node *n){
+	if(head == NULL){
+        head = n;        
+    }
+	else
+    {
+        n->succ=head;
+		head=n;
+    }
+}
+
+void personAmEndeHinzufuegen(char *vorname, char *nachname){
+	node *n;
     n = malloc(sizeof(node));
     n->vorname = vorname;
     n->nachname = nachname;
     n->succ = NULL;
 
-    nodeAmEndeHinzufuegen(n);
+    nodeAmEndeHinzufuegen(n);	
 }
 
 void nodeAmEndeHinzufuegen(node *n){
@@ -43,4 +64,5 @@ void printListe(node *liste){
         printf("%s %s\n", q->vorname, q->nachname);
         q = q->succ;
     }
+	printf("\n");
 }
