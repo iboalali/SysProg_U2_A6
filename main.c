@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 #include "PersonenDaten.h"
-
-
+#include "StringFuncs.h"
 
 int main(int argc, char **argv){
     

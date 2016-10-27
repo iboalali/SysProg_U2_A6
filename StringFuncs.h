@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int namecmp(char *first_string, char *second_string);
-int mystrlen(char *string);
-char* toLower(char *string);
+int namecmp(char *first_str, char *second_str);
+int mystrlen(char *str);
+char* toLower(char *str);
 
 #endif
