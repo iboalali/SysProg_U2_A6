@@ -41,16 +41,25 @@ int namecmp(char *first_str, char *second_str) {
     else return -1;
 }
 
-char* toLower(char *str){
-    //Große Buchstaben von 65-90
-    //Kleine Buchstaben von 97-122
-    int i = 0;
+char *toLower(char *str) {
+	//Groß-Buchstaben von 65-90
+	//Klein-Buchstaben von 97-122
+	int i = 0;
+	int length = mystrlen(str);
+	char *str_l = malloc(length);
+	if (str_l == NULL) printf("Malloc failed");
 
-    while(i < mystrlen(str)) {
-        if (str[i] <= 90) {
-            str[i] += 32;
-            i++;
-        }
-    }
-    return str;
+	while (i < length) {
+		if (str[i] <= 90) {
+			str_l[i] = str[i] + 32;
+			i++;
+		}
+		else {
+			str_l[i] = str[i];
+			i++;
+			continue;
+		}
+	}
+	str_l[i] = '\0';
+	return str_l;
 }
