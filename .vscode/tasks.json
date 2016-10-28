@@ -1,0 +1,33 @@
+{
+    "version": "0.1.0",
+    "command": "cmd",
+    "args": [],
+    "showOutput": "always",
+    "isShellCommand": true,
+    "tasks": [
+        {
+            "taskName": "C:\\cygwin64\\bin\\gcc",
+            "args": [
+                "-g",
+                "${workspaceRoot}\\main.c",
+                "${workspaceRoot}\\PersonenDaten.c",
+                "-o",
+                "${workspaceRoot}\\aufgabe1_d.exe"
+            ],
+            "echoCommand":true,
+            "isBuildCommand": true,
+            "suppressTaskName": true
+        },
+        {
+            "taskName": "C:\\cygwin64\\bin\\gcc",
+            "args": [
+                "${workspaceRoot}\\main.c",
+                "${workspaceRoot}\\PersonenDaten.c",
+                "-o",
+                "${workspaceRoot}\\aufgabe1_d.exe"
+            ],
+            "echoCommand":true,
+            "isBuildCommand": false
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+call C:/cygwin/bin/gcc.exe %1 %2 %3 %4 %5
