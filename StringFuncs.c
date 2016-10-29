@@ -44,43 +44,11 @@ int namecmp(char *first_str, char *second_str) {
 	else return 0;
 }
 
-<<<<<<< HEAD
-int strlenWort(char* str){
-	int i=0;
-	
-	while (str[i]!='\0')
-    {		
-		if(str[i]==' '){
-			return i;
-		}	
-		else{
-			i++;
-			str++;
-		}
-    }
-    return i;
-}
-
-int strlenOhneLeerzeichen(char* str){
-	int i=0;
-    while (str[i]!='\0')
-    {
-		if(str[i] == ' '){
-			str++;
-		}
-		else{
-			i++;
-			str++;
-		}
-    }
-    return i;
-}
-=======
 /*
 	Groß-Buchstaben von 65-90
 	Klein-Buchstaben von 97-122
 */
->>>>>>> origin/Adding_String_Functions
+
 
 char *toLower(char *str) {
 	int i = 0;

@@ -16,7 +16,8 @@ int main(int argc, char **argv){
 	personAmEndeHinzufuegen("Nico", "Krösinger");
 	printListe(head);
 	
-	FILE* fp;    
+	FILE* fp;  
+	char  name[20];	
     printf("Welche Datei soll geöffnet werden: ");
     scanf("%s", name);
 	
