@@ -66,3 +66,23 @@ void printListe(node *liste){
     }
 	printf("\n");
 }
+
+void freeList(node *liste){
+	if(head!=NULL){
+		if(head->succ ==NULL){
+			free(head);
+		}
+		else{
+			node* a=head;
+			node* b=head->succ;
+			while(b!=NULL){
+				free(a);
+				a=b;
+				b=b->succ;
+			}
+			free(a);
+			head=NULL;
+		}
+	}
+	
+}
