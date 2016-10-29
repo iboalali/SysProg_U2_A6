@@ -4,8 +4,6 @@
 #include "PersonenDaten.h"
 #include "StringFuncs.h"
 
-#define ZEILENLAENGE 80
-
 int main(int argc, char **argv){
     
     printTest();
@@ -18,8 +16,7 @@ int main(int argc, char **argv){
 	personAmEndeHinzufuegen("Nico", "Krösinger");
 	printListe(head);
 	
-	FILE* fp;
-    char puffer[ZEILENLAENGE], name[20];	
+	FILE* fp;    
     printf("Welche Datei soll geöffnet werden: ");
     scanf("%s", name);
 	
@@ -32,112 +29,18 @@ int main(int argc, char **argv){
         return 1;
     }
 	
-	char* vname;
-	char* nname;
 	
-	int i;
-	int j;
 	
-	while(fgets(puffer, ZEILENLAENGE, fp)){
-		
-		// if(head==NULL){			
-			// int vornamel;
-			// vornamel = strlenWort(puffer);
-			// int nachnamel = strlenOhneLeerzeichen(puffer+vornamel);
-			
-		
-			
-			
-			// char vorname[vornamel];
-			// char nachname[nachnamel];
-			// int i;
-			// for(i=0;i<vornamel;i++){
-				// vorname[i] = puffer[i];
-			// }
-			
-			// for(i=0;i<nachnamel;i++){
-				// nachname[i] = puffer[vornamel+i+1];
-			// }
-			// personAmAnfangHinzufuegen(vorname, nachname);
-			
-			// printf("Vorname: %s\n", vorname);
-		// printf("Nachname: %s\n", nachname);
-		// }
-		// else{
-			// int vornamel;
-			// vornamel = strlenWort(puffer);
-			// int nachnamel = strlenOhneLeerzeichen(puffer+vornamel);
-			
-
-			// char vorname[vornamel];
-			// char nachname[nachnamel];
-			// int i;
-			// for(i=0;i<vornamel;i++){
-				// vorname[i] = puffer[i];
-			// }
-			// for(i=0;i<nachnamel;i++){
-				// nachname[i] = puffer[vornamel+i+1];
-			// }
-			// personAmEndeHinzufuegen(vorname, nachname);
-			
-			// printf("Vorname: %s\n", vorname);
-		// printf("Nachname: %s\n", nachname);
-		// }
-		
-		fputs(puffer, stdout);
-				
-		int vornamel;
-		vornamel = strlenWort(puffer);
-		int nachnamel = strlenOhneLeerzeichen(puffer+vornamel);
-		
-		if(feof(fp)){
-			printf("\n");
-			nachnamel+=2;
-		}
-		printf("Anzahl Buchstaben Vorname: %d\n", vornamel);		
-		printf("Anzahl Buchstaben Nachname: %d\n", nachnamel);
-		
-		printf("Vorname: ");
-		for(i =0;i<vornamel;i++){
-			printf("%c", puffer[i]);
-		}
-		
-		j=nachnamel;
-		printf("\nNachname: ");
-		
-		for(i=0;i<j;i++){
-			if(puffer[i+vornamel]!=' '){
-				printf("%c", puffer[i+vornamel]);
-			}
-			else if(puffer[i+vornamel]=='\0'){
-				i=j;
-			}
-			else j++;
-		}
-        	
-		
-		
-		
-		
-		char vorname[vornamel];
-		char nachname[nachnamel];
-		for(i=0;i<vornamel;i++){
-			if(puffer[i]!=' '){
-				vorname[i] = puffer[i];
-			}			
-		}
-		for(i=0;i<nachnamel;i++){
-			nachname[i] = puffer[vornamel+i+1];
-		}
-		
-		printf("\nName: %s %s\n", vorname, nachname);
-		
-		printf("\n\n");
-		
+	
+	char vorname[50];
+	char nachname[50];
+	
+	while((fscanf(fp, "%s %s", vorname, nachname))!=EOF){
 		personAmEndeHinzufuegen(vorname, nachname);
-		
-		
+		printf("Name: %s %s\n", vorname, nachname);
 	}
+	
+	printf("\n");
 	
 	printListe(head);
 	

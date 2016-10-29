@@ -48,9 +48,9 @@ int namecmp(char *first_str, char *second_str) {
 int strlenWort(char* str){
 	int i=0;
 	
-	while (*str!='\0')
+	while (str[i]!='\0')
     {		
-		if(*str==' '){
+		if(str[i]==' '){
 			return i;
 		}	
 		else{
@@ -58,14 +58,14 @@ int strlenWort(char* str){
 			str++;
 		}
     }
-    return i-2;
+    return i;
 }
 
 int strlenOhneLeerzeichen(char* str){
 	int i=0;
-    while (*str!='\0')
+    while (str[i]!='\0')
     {
-		if(*str == ' '){
+		if(str[i] == ' '){
 			str++;
 		}
 		else{
@@ -73,7 +73,7 @@ int strlenOhneLeerzeichen(char* str){
 			str++;
 		}
     }
-    return i-2;
+    return i;
 }
 =======
 /*

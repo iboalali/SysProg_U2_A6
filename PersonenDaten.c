@@ -41,7 +41,7 @@ void nodeAmEndeHinzufuegen(node *n){
         return;
     }
 
-    struct node *q;
+    node *q;
     q = head;
 
     while(q->succ != NULL){
