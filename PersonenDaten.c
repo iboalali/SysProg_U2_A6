@@ -1,9 +1,5 @@
 #include "PersonenDaten.h"
 
-void printTest(){
-    printf("%s", "hello friend!\n\n");
-}
-
 void personAmAnfangHinzufuegen(char *vorname, char *nachname){
     node *n;
     n = malloc(sizeof(node));
