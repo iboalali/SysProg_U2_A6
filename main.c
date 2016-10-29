@@ -5,7 +5,7 @@
 #include "StringFuncs.h"
 
 int main(int argc, char **argv){
-    
+
     printTest();
 
     printListe(head);
@@ -15,40 +15,39 @@ int main(int argc, char **argv){
     printListe(head);
 	personAmEndeHinzufuegen("Nico", "Krösinger");
 	printListe(head);
-	
-	FILE* fp;  
-	char  name[20];	
+
+	FILE* fp;
     printf("Welche Datei soll geöffnet werden: ");
     scanf("%s", name);
-	
+
 	head =NULL;
-	
+
 	fp = fopen(name, "r");
     if(fp == NULL)
     {
         printf("Datei wurde nicht gefunden");
         return 1;
     }
-	
-	
-	
-	
-	char vorname[50];
-	char nachname[50];
-	
-	while((fscanf(fp, "%s %s", vorname, nachname))!=EOF){
-		personAmEndeHinzufuegen(vorname, nachname);
+
+
+
+
+	char *vorname;
+	char *nachname;
+
+	while((fscanf(fp, "%99s %99s", vorname, nachname))!=EOF){  //man kann strings auch so einlesen
+		personAmEndeHinzufuegen(vorname, nachname);              //das heißt "bis 100 chars" (0-99) ;)
 		printf("Name: %s %s\n", vorname, nachname);
 	}
-	
+
 	printf("\n");
-	
+
 	printListe(head);
-	
-	fclose(fp);    
+
+	fclose(fp);
     printf("Datei geschlossen\n");
-	
-	
+
+
 
     return 0;
 }
