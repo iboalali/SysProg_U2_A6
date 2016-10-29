@@ -41,6 +41,37 @@ int namecmp(char *first_str, char *second_str) {
     else return -1;
 }
 
+int strlenWort(char* str){
+	int i=0;
+	
+	while (*str!='\0')
+    {		
+		if(*str==' '){
+			return i;
+		}	
+		else{
+			i++;
+			str++;
+		}
+    }
+    return i-2;
+}
+
+int strlenOhneLeerzeichen(char* str){
+	int i=0;
+    while (*str!='\0')
+    {
+		if(*str == ' '){
+			str++;
+		}
+		else{
+			i++;
+			str++;
+		}
+    }
+    return i-2;
+}
+
 char *toLower(char *str) {
 	//Groß-Buchstaben von 65-90
 	//Klein-Buchstaben von 97-122
