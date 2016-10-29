@@ -115,24 +115,24 @@ int main(int argc, char **argv){
 			else j++;
 		}
         	
-		printf("\n\n");
 		
 		
-		j=nachnamel;
+		
+		
 		char vorname[vornamel];
 		char nachname[nachnamel];
 		for(i=0;i<vornamel;i++){
-			vorname[i] = puffer[i];
+			if(puffer[i]!=' '){
+				vorname[i] = puffer[i];
+			}			
 		}
-		for(i=0;i<j;i++){
-			if(puffer[i+vornamel]!=' '){
-			nachname[i]=puffer[i+vornamel];
-			}
-			else if(puffer[i+vornamel]=='\0'){
-				i=j;
-			}
-			else j++;
+		for(i=0;i<nachnamel;i++){
+			nachname[i] = puffer[vornamel+i+1];
 		}
+		
+		printf("\nName: %s %s\n", vorname, nachname);
+		
+		printf("\n\n");
 		
 		personAmEndeHinzufuegen(vorname, nachname);
 		
