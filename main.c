@@ -118,6 +118,25 @@ int main(int argc, char **argv){
 		printf("\n\n");
 		
 		
+		j=nachnamel;
+		char vorname[vornamel];
+		char nachname[nachnamel];
+		for(i=0;i<vornamel;i++){
+			vorname[i] = puffer[i];
+		}
+		for(i=0;i<j;i++){
+			if(puffer[i+vornamel]!=' '){
+			nachname[i]=puffer[i+vornamel];
+			}
+			else if(puffer[i+vornamel]=='\0'){
+				i=j;
+			}
+			else j++;
+		}
+		
+		personAmEndeHinzufuegen(vorname, nachname);
+		
+		
 	}
 	
 	printListe(head);
