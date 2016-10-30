@@ -48,7 +48,7 @@ void nodeSortiertHinzufuegen(node *n){
     }
 
     // if there are more than one node
-    while (q->succ != NULL){
+    while (q != NULL){
         if (namecmp(n->nachname, q->nachname) == 1){
             // Neuer Name kommt vor den derzeitigen Name in der liste.
 
