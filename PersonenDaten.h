@@ -12,11 +12,15 @@ struct node{
     char *nachname;
 };
 
+// head of the list
 node *head;
 
+// always updated count of the nodes in the list (node *head);
+int node_count;
+
 void printTest();
-void personAmAnfangHinzufuegen(char *vorname, char *nachname);
-void personAmEndeHinzufuegen(char *vorname, char *nachname);
+void personHinzufuegen(char *vorname, char *nachname);
+void nodeSortiertHinzufuegen(node *n);
 void nodeAmAnfangHinzufuegen(node *n);
 void nodeAmEndeHinzufuegen(node *n);
 void printListe(node *liste);
