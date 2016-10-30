@@ -6,7 +6,7 @@ void personHinzufuegen(char *vorname, char *nachname){
     n = malloc(sizeof(node));
     n->vorname = vorname;
     n->nachname = nachname;
-    n->succ = head;
+    n->succ = NULL;
 
     nodeSortiertHinzufuegen(n);
 }
@@ -40,6 +40,9 @@ void nodeSortiertHinzufuegen(node *n){
                 // nachher kommt, wird der neue node am ende hinzufügen
                 nodeAmEndeHinzufuegen(n);
             }
+        }else{
+            // Neuer Name kommt nach den derzeitigen Name in der liste
+            nodeAmEndeHinzufuegen(n);
         }
         return;
     }
