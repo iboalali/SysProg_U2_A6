@@ -9,11 +9,11 @@ int main(int argc, char **argv){
     printTest();
 
     printListe(head);
-    personAmAnfangHinzufuegen("Ibrahim", "Al-Alali");
+    personHinzufuegen("Ibrahim", "Al-Alali");
     printListe(head);
-    personAmAnfangHinzufuegen("Joshua", "Koenen");
+    personHinzufuegen("Joshua", "Koenen");
     printListe(head);
-	personAmEndeHinzufuegen("Nico", "Krösinger");
+	personHinzufuegen("Nico", "Krösinger");
 	printListe(head);
 	
 	
