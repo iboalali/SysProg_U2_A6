@@ -28,8 +28,7 @@ void nodeSortiertHinzufuegen(node *n){
             nodeAmAnfangHinzufuegen(n);
         }
         else if(namecmp(n->nachname, head->nachname) == 0){
-            // Neuer Name is exakt gleich
-
+            // Neuer Name is exakt gleich.
             // Vorname vergleichen
             if(namecmp(n->vorname, head->vorname) == 1){
                 // Wenn die Nachnamen gleich sind, aber der neue vorname
@@ -44,6 +43,32 @@ void nodeSortiertHinzufuegen(node *n){
             // Neuer Name kommt nach den derzeitigen Name in der liste
             nodeAmEndeHinzufuegen(n);
         }
+        return;
+    }
+
+    // Name mit der ersten node vergleichen
+    if(namecmp(n->nachname, p->nachname) == 1){
+        nodeAmAnfangHinzufuegen(n);
+        return;
+    }else if(namecmp(n->nachname, p->nachname) == 0){
+        if(namecmp(n->vorname, p->vorname) == 1){
+                nodeAmAnfangHinzufuegen(n);
+                return;
+        }
+
+        while((q != NULL) && (namecmp(n->nachname, q->nachname) == 0)){
+            if(namecmp(n->vorname, q->vorname) == 1){
+                p->succ = n;
+                n->succ = q;
+                return;
+            }
+
+            // move the markers to the next position
+            p = q;
+            q = q->succ;
+        }
+        p->succ = n;
+        n->succ = q;
         return;
     }
 
@@ -94,7 +119,7 @@ void nodeSortiertHinzufuegen(node *n){
 
     }
 
-    // gone through the whole list, just add to the end
+    // gone through the whole list. just add to the end
     nodeAmEndeHinzufuegen(n);
 }
 
