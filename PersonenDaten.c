@@ -19,8 +19,8 @@ void nodeSortiertHinzufuegen(node *n){
 
     node *p; // head location
     node *q; // head location + 1
-    p = head; 
-    q = head->succ;
+    p = head; // should not be NULL
+    q = head->succ; // could be NULL
 
     if(node_count == 1){
         if (namecmp(n->nachname, head->nachname) == 1){
@@ -31,24 +31,61 @@ void nodeSortiertHinzufuegen(node *n){
             // Neuer Name is exakt gleich
 
             // Vorname vergleichen
-
-            //nodeAmEndeHinzufuegen(n);
+            if(namecmp(n->vorname, head->vorname) == 1){
+                // Wenn die Nachnamen gleich sind, aber der neue vorname
+                // vor den in der liste
+                nodeAmAnfangHinzufuegen(n);
+            }else{
+                // Wenn die vornamen gleich sind, oder der neuer vorname 
+                // nachher kommt, wird der neue node am ende hinzufügen
+                nodeAmEndeHinzufuegen(n);
+            }
         }
         return;
     }
 
-    // if there are more nodes than one
+    // if there are more than one node
     while (q->succ != NULL){
-        if (namecmp(n->nachname, p->nachname) == 1){
-            // Neuer Name kommt vor den derzeitigen Name in der liste
+        if (namecmp(n->nachname, q->nachname) == 1){
+            // Neuer Name kommt vor den derzeitigen Name in der liste.
+
+            // put the new node between the current node and the previous one
             p->succ = n;
             n->succ = q;
             return;
-        }else if(namecmp(n->nachname, p->nachname) == 0){
+        }else if(namecmp(n->nachname, q->nachname) == 0){
             // Der Name is exakt gleich
 
             // Vorname vergleichen
+            if(namecmp(n-vorname, q->vorname) == 1){
+                // put the new node between the current node and the previous one
+                p->succ = n;
+                n->succ = q;
+                return;
+            }
+            
+            // move the markers to the next position
+            p = q;
+            q = q->succ;
+            // hier wird geprüft ob noch mehr leute den gleichen Namen besitzen
+            while((q != NULL) && (namecmp(n->nachname, q->nachname) == 0)){
+                if(namecmp(n-vorname, q->vorname) == 1){
+                    // put the new node between the current node and the previous one
+                    p->succ = n;
+                    n->succ = q;
+                    return;
+                }
+                // move the markers to the next position
+                p = q;
+                q = q->succ;
+            }
+            // put the new node between the current node and the previous one
+            p->succ = n;
+            n->succ = q;
+            return;
+
         }
+        // move the markers to the next position
         p = q;
         q = q->succ;
 
@@ -104,6 +141,16 @@ int getNodeCount(){
     }
 
     return i;
+}
+
+void moveToTheNextPositionInTheList(node *p, node *q){
+    p = q;
+    q = q->succ;
+}
+
+void putNewNodeInTheList(node *p, node *q, node *n){
+    p->succ = n;
+    n->succ = q;
 }
 
 void printListe(node *liste){
