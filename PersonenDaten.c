@@ -57,7 +57,7 @@ void nodeSortiertHinzufuegen(node *n){
             // Der Name is exakt gleich
 
             // Vorname vergleichen
-            if(namecmp(n-vorname, q->vorname) == 1){
+            if(namecmp(n->vorname, q->vorname) == 1){
                 // put the new node between the current node and the previous one
                 p->succ = n;
                 n->succ = q;
@@ -69,7 +69,7 @@ void nodeSortiertHinzufuegen(node *n){
             q = q->succ;
             // hier wird geprüft ob noch mehr leute den gleichen Namen besitzen
             while((q != NULL) && (namecmp(n->nachname, q->nachname) == 0)){
-                if(namecmp(n-vorname, q->vorname) == 1){
+                if(namecmp(n->vorname, q->vorname) == 1){
                     // put the new node between the current node and the previous one
                     p->succ = n;
                     n->succ = q;

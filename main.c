@@ -5,8 +5,6 @@
 #include "StringFuncs.h"
 
 int main(int argc, char **argv){
-    
-    printTest();
 
     printListe(head);
     personHinzufuegen("Ibrahim", "Al-Alali");
