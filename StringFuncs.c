@@ -45,6 +45,7 @@ int namecmp(char *first_str, char *second_str) {
 	Klein-Buchstaben von 97-122
 */
 
+
 char *toLower(char *str) {
 	int i = 0;
 	int length = mystrlen(str);

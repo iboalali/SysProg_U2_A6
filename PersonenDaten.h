@@ -24,5 +24,6 @@ void nodeSortiertHinzufuegen(node *n);
 void nodeAmAnfangHinzufuegen(node *n);
 void nodeAmEndeHinzufuegen(node *n);
 void printListe(node *liste);
+void freeList(node *liste);
 
 #endif

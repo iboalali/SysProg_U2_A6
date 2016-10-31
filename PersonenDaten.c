@@ -6,7 +6,7 @@ void personHinzufuegen(char *vorname, char *nachname){
     n = malloc(sizeof(node));
     n->vorname = vorname;
     n->nachname = nachname;
-    n->succ = NULL;
+    n->succ = head;
 
     nodeSortiertHinzufuegen(n);
 }
@@ -185,14 +185,34 @@ void printListe(node *liste){
     node *q;
     q = liste;
 
-    if (q == NULL){
+    if(q == NULL){
         printf("%s\n", "Liste ist Leer");
         return;
     }
 
-    while (q != NULL){
+    while(q != NULL){
         printf("%s %s\n", q->vorname, q->nachname);
         q = q->succ;
     }
-    printf("\n");
+	printf("\n");
+}
+
+void freeList(node *liste){
+	if(head!=NULL){
+		if(head->succ ==NULL){
+			free(head);
+		}
+		else{
+			node* a=head;
+			node* b=head->succ;
+			while(b!=NULL){
+				free(a);
+				a=b;
+				b=b->succ;
+			}
+			free(a);
+			head=NULL;
+		}
+	}
+	
 }
