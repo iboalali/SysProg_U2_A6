@@ -6,7 +6,7 @@ void personHinzufuegen(char *vorname, char *nachname){
     n = malloc(sizeof(node));
     n->vorname = vorname;
     n->nachname = nachname;
-    n->succ = head;
+    n->succ = NULL;
 
     nodeSortiertHinzufuegen(n);
 }

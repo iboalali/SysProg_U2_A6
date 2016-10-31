@@ -8,9 +8,13 @@ int main(int argc, char **argv){
 
     printListe(head);
     personHinzufuegen("Ibrahim", "Al-Alali"); // test for insertion in an empty list
+	printListe(head);
     personHinzufuegen("Joshua", "Koenen"); // test for insertion in a list with one node
+	printListe(head);
 	personHinzufuegen("Nico", "Krösinger"); // test for the insertion after the second node
+	printListe(head);
     personHinzufuegen("Lukas", "H-Nebelung"); // test for insert bertween
+	printListe(head);
     personHinzufuegen("Jamal", "Al-Alali"); // test for a previously inserted name
 	printListe(head);
 
@@ -41,7 +45,7 @@ int main(int argc, char **argv){
 			temp2[i] = nachname[i];
 		}
 		
-		personAmEndeHinzufuegen(temp1, temp2);             
+		personHinzufuegen(temp1, temp2);             
 		printf("Name: %s %s\n", temp1, temp2);
 		printListe(head);
 	}
